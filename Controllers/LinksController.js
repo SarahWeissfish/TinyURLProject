@@ -8,18 +8,18 @@ const getShortLink = (link) => {
 const LinksController = {
     getLinks: async (req, res) => {
         try {
-            const links = await LinkModel.find()
-            res.json(links)
-        } catch (error) {
-            res.status(400).json({ message: error.message })
+            const links = await LinkModel.find();        
+                res.json(links);
+                } catch (error) {
+            res.status(400).json({ message: error.message });
         }
     },
     getByAlias: async (req, res) => {
         const { alias } = req.params
         try {
-            const link = await LinkModel.findOne({ alias: alias })
-            res.json(link)
-        } catch (error) {
+            const link = await LinkModel.findOne({ alias: alias });
+                        res.json(link);
+                } catch (error) {
             res.status(400).json({ message: error.message })
         }
     },
@@ -70,6 +70,6 @@ const LinksController = {
             res.status(400).json({ message: error.message })
         }
     }
-}
+};
 
 export default LinksController
